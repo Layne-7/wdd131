@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  font-family: "Inter", sans-serif;
+  color: #222;
+  background-color: #f4f6f8;
+  line-height: 1.5;
+}
+ 
+h1, h2, h3 {
+  font-family: "Poppins", sans-serif;
+}
+ 
+a {
+  color: #1f4468;
+  text-decoration: none;
+}
+ 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+ 
+/* ---------- HEADER ---------- */
+header {
+  background-color: #1f4468;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+ 
+/* O enunciado pede display:block no span para centralizar
+   o título com facilidade */
+#course-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+ 
+/* ---------- NAV (Flexbox) ---------- */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  background-color: #2b2b2b;
+}
+ 
+nav a {
+  display: block;
+  color: #fff;
+  padding: 0.9rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+ 
+/* Efeito de hover exigido no enunciado */
+nav a:hover,
+nav a:focus {
+  background-color: #ffcc4d;
+  color: #1f1f1f;
+}
+ 
+/* ---------- MAIN (largura limitada + Grid) ---------- */
+main {
+  max-width: 960px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+ 
+main > h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1f4468;
+}
+ 
+/* Grid para colocar os dois cards lado a lado */
+.card-container,
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+ 
+/* Se você envolver as duas .card num container (recomendado),
+   aplique o grid nesse container em vez do main. Caso as duas
+   section.card estejam soltas direto dentro do main, este
+   seletor já resolve: */
+main {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+ 
+main > h1 {
+  grid-column: 1 / -1; /* h1 ocupa a largura toda, acima dos cards */
+}
+ 
+/* ---------- CARDS ---------- */
+.card {
+  background-color: #fff;
+  border: 1px solid #d9dee3;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+ 
+.card h2 {
+  background-color: #1f4468;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+ 
+.card > *:not(h2) {
+  padding: 0 1rem;
+}
+ 
+.card p {
+  margin: 1rem 0;
+}
+ 
+.card img {
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+ 
+.card ul {
+  margin: 1rem 0 1.25rem 1.25rem;
+}
+ 
+.card li {
+  margin-bottom: 0.4rem;
+}
+ 
+/* Empilha os cards em telas estreitas */
+@media (max-width: 640px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: #1f4468;
+  color: #fff;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  margin-top: 2rem;
+}
+ 
+footer p {
+  margin: 0.25rem 0;
+}
+ 
+#lastModified {
+  color: #ffcc4d;
+  font-size: 0.85rem;
+}
